@@ -1,11 +1,11 @@
 import React from 'react';
-import { Router, Scene, Actions } from 'react-native-router-flux';
-
+import { Router, Scene } from 'react-native-router-flux';
 import FormLogin from './src/components/FormLogin'
 import FormCadastro from './src/components/FormCadastro';
 import BoasVindas from './src/components/BoasVindas';
 import Principal from './src/components/Principal';
 import AdicionarContato from './src/components/AdicionarContato';
+import Conversa from './src/components/Conversa';
 
 
 
@@ -17,6 +17,7 @@ export default props => (
             <Scene key='boasVindas' component={BoasVindas} title="Cadastro" />
             <Scene key='principal' component={Principal} title="Principal" hideNavBar/>
             <Scene key='adicionarContato' component={AdicionarContato} title="Adicionar Contato" />
+            <Scene key='conversa' component={Conversa} title="Conversa" />
         </Scene>
     </Router>
 );
