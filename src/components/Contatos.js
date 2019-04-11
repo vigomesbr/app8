@@ -30,7 +30,7 @@ class Contatos extends Component {
     renderRow(contato){
         return(
             <TouchableOpacity
-                onPress={ ()=> Actions.conversa() }>
+                onPress={ ()=> Actions.conversa({ title: contato.nome, contatoNome: contato.nome, contatoEmail: contato.email }) }>
                 <View style={{ flex: 1, padding:20, borderBottomWidth: 1, borderColor: '#CCC' }}>
                     <Text style={{ fontSize: 25 }}>{contato.nome}</Text>
                     <Text style={{ fontSize: 18 }}>{contato.email}</Text>
@@ -50,7 +50,7 @@ class Contatos extends Component {
     }
 }
 
-mapStateToProps = state => {
+const mapStateToProps = state => {
     const contatos = _.map(state.ListaContatosReducer, (val, uid) => {
         return {...val, uid }
     })
