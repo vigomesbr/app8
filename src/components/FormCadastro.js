@@ -65,7 +65,7 @@ class formCadastro extends Component {
     }
 }
 
-const mapStateToProps = state => ({
+mapStateToProps = state => ({
     nome: state.AutenticacaoReducer.nome,
     email: state.AutenticacaoReducer.email,
     senha: state.AutenticacaoReducer.senha,

@@ -65,7 +65,7 @@ class formLogin extends Component {
     }
 };
 
-const mapStateToProps = state => ({
+mapStateToProps = state => ({
     email: state.AutenticacaoReducer.email,
     senha: state.AutenticacaoReducer.senha,
     erroLogin: state.AutenticacaoReducer.erroLogin,

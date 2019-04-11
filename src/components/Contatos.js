@@ -50,7 +50,7 @@ class Contatos extends Component {
     }
 }
 
-const mapStateToProps = state => {
+mapStateToProps = state => {
     const contatos = _.map(state.ListaContatosReducer, (val, uid) => {
         return {...val, uid }
     })

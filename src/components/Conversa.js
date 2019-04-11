@@ -12,10 +12,14 @@ class Conversa extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if( this.props.contatoEmail != nextProps.contatoEmail){
+        if(this.props.contatoEmail != nextProps.contatoEmail) {
             this.props.conversaUsuarioFetch(nextProps.contatoEmail)
         }
         this.criaFonteDeDados(nextProps.conversa);
+    }
+
+    componentDidMount(){
+        this.listView.scrollToEnd()
     }
 
     criaFonteDeDados( conversa ) {
@@ -29,18 +33,19 @@ class Conversa extends Component {
         this.props.enviarMensagem(mensagem, contatoNome, contatoEmail)
     }
 
-    renderRow(text) {
+    renderRow(texto) {
 
-        if (text.tipo === 'e'){
+        if(texto.tipo == 'e') {
             return (
-                <View style={{ alignItems: 'flex-end', marginTop: 5, marginBottom: 5, marginLeft: 40 }}>
-                    <Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#DBF5B4', elevation: 1}}>{text.mensagem}</Text>
+                <View style={{ alignItems: 'flex-end', marginTop: 5, marginBottom: 5, marginLeft: 40}}>
+                    <Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#dbf5b4', elevation: 1}}>{texto.mensagem}</Text>
                 </View>
             )
         }
+
         return (
-            <View style={{ alignItems: 'flex-start', marginTop: 5, marginBottom: 5, marginRight: 40 }}>
-                    <Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#F7F7F7', elevation: 1}}>{text.mensagem}</Text>
+            <View style={{ alignItems: 'flex-start', marginTop: 5, marginBottom: 5, marginRight: 40}}>
+                <Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#f7f7f7', elevation: 1}}>{texto.mensagem}</Text>
             </View>
         )
     }
@@ -54,6 +59,10 @@ class Conversa extends Component {
                         enableEmptySections
                         dataSource={this.dataSource}
                         renderRow={this.renderRow}
+                        ref={ref => this.listView = ref}
+                        onContentSizeChange={(contentWidth, contentHeight)=>{        
+                            this.listView.scrollToEnd({animated: true});
+                        }}
                     />
                 </View>
 
