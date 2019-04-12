@@ -3,7 +3,7 @@ import { View, Text, StatusBar, Image, TouchableOpacity } from 'react-native';
 import { TabBar } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { habilitaInclusaoContato } from '../actions/AppActions';
+import { habilitaInclusaoContato, logoff } from '../actions/AppActions';
 import firebase from '@firebase/app';
 import '@firebase/auth';
 
@@ -39,5 +39,5 @@ const TabBarMenu = props => (
     </View>
 );
 
-export default connect(null, { habilitaInclusaoContato })(TabBarMenu);
+export default connect(null, { habilitaInclusaoContato, logoff })(TabBarMenu);
 
